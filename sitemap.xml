@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://gilsaia.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-11-26T03:55:51.027Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://gilsaia.github.io/tags/index.html</loc>
     
     <lastmod>2019-11-26T03:40:23.871Z</lastmod>
