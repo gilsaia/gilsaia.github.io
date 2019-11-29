@@ -56,8 +56,10 @@
 <meta property="og:site_name" content="gilsaia的小屋">
 <meta property="og:description" content="中文文档真的是好用嗷 编程游戏，对我胃口嗷 为了能够在世界服里有一个比较好的开端，我打算先在自己的服务器上跑私有客户端（感谢阿里云学生服务器），在服务器上做一个比较完善的尝试后再上世界服 按照文档说的方法 装好一系列的环境 node.js MongoDB Redis… 注意 文档里给的node.js版本也还是过低了…后来发现npm里有一个模块n可以来管理版本，直接搜就能看到了不难 123sudo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-26T19:17:34.650Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;gilsaia.github.io&#x2F;2019&#x2F;11&#x2F;26&#x2F;screep-0&#x2F;2019-11-30.png">
+<meta property="og:updated_time" content="2019-11-29T17:35:52.839Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;gilsaia.github.io&#x2F;2019&#x2F;11&#x2F;26&#x2F;screep-0&#x2F;2019-11-30.png">
 
 <link rel="canonical" href="http://gilsaia.github.io/2019/11/26/screep-0/">
 
@@ -213,7 +215,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-27 03:17:34" itemprop="dateModified" datetime="2019-11-27T03:17:34+08:00">2019-11-27</time>
+                <time title="修改时间：2019-11-30 01:35:52" itemprop="dateModified" datetime="2019-11-30T01:35:52+08:00">2019-11-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,6 +254,9 @@
 <p>注意 文档里给的node.js版本也还是过低了…后来发现npm里有一个模块n可以来管理版本，直接搜就能看到了不难</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install npm</span><br><span class="line">sudo npm install n -g</span><br><span class="line">n stable</span><br></pre></td></tr></table></figure>
 <p>其他包倒是问题不大，照着教程来就是了<br>唔..有点尴尬…阿里云给的学生服务器性能不太够的样子…考虑一下要怎么办吧…</p>
+<p>尝试了一下…我去掉了额外的mongodb redis…能跑起来了…发现自己对于它cli和服务器的机制理解有问题…不知道是因为减少安装的包还是改正了使用过程的结果…反正能用了</p>
+<img src="/2019/11/26/screep-0/2019-11-30.png" class="" title="The result">
+<p>可是累死我了…</p>
 
     </div>
 
