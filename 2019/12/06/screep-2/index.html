@@ -48,30 +48,32 @@
   };
 </script>
 
-  <meta name="description" content="something about gilsaia">
-<meta property="og:type" content="website">
-<meta property="og:title" content="gilsaia的小屋">
-<meta property="og:url" content="http:&#x2F;&#x2F;gilsaia.github.io&#x2F;index.html">
+  <meta name="description" content="那我们就算正式开始尝试了，为了有一个开头，我翻了一下youtube发现还是有相关教程的，所以前期的几篇大概会通过看教程模仿再加入一些自己的改进 有用的资源  Youtube教程 中文文档 中文api  这里建议在看教程模仿的时候调用的方法都去api文档里查一查，一是能够更加熟悉函数，二是教程不可避免地有些老了，有的方法已经被更换建议按照api中的新接口来使用。比如查看携带的资源现在统一为一个sto">
+<meta name="keywords" content="游戏,screeps">
+<meta property="og:type" content="article">
+<meta property="og:title" content="萌新尝试screeps——2、最最基础的运行逻辑">
+<meta property="og:url" content="http:&#x2F;&#x2F;gilsaia.github.io&#x2F;2019&#x2F;12&#x2F;06&#x2F;screep-2&#x2F;index.html">
 <meta property="og:site_name" content="gilsaia的小屋">
-<meta property="og:description" content="something about gilsaia">
+<meta property="og:description" content="那我们就算正式开始尝试了，为了有一个开头，我翻了一下youtube发现还是有相关教程的，所以前期的几篇大概会通过看教程模仿再加入一些自己的改进 有用的资源  Youtube教程 中文文档 中文api  这里建议在看教程模仿的时候调用的方法都去api文档里查一查，一是能够更加熟悉函数，二是教程不可避免地有些老了，有的方法已经被更换建议按照api中的新接口来使用。比如查看携带的资源现在统一为一个sto">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-06T15:40:36.502Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://gilsaia.github.io/">
+<link rel="canonical" href="http://gilsaia.github.io/2019/12/06/screep-2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>gilsaia的小屋</title>
+  <title>萌新尝试screeps——2、最最基础的运行逻辑 | gilsaia的小屋</title>
   
 
 
@@ -177,10 +179,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://gilsaia.github.io/2019/12/06/screep-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -194,8 +196,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/06/screep-2/" class="post-title-link" itemprop="url">萌新尝试screeps——2、最最基础的运行逻辑</a>
+          萌新尝试screeps——2、最最基础的运行逻辑
         </h1>
 
         <div class="post-meta">
@@ -237,7 +238,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>那我们就算正式开始尝试了，为了有一个开头，我翻了一下youtube发现还是有相关教程的，所以前期的几篇大概会通过看教程模仿再加入一些自己的改进</p>
+        <p>那我们就算正式开始尝试了，为了有一个开头，我翻了一下youtube发现还是有相关教程的，所以前期的几篇大概会通过看教程模仿再加入一些自己的改进</p>
 <p>有用的资源</p>
 <ul>
 <li><a href="https://www.youtube.com/playlist?list=PL0EZQ169YGlor5rzeJEYYPE3tGYT2zGT2" target="_blank" rel="noopener">Youtube教程</a></li>
@@ -266,348 +267,34 @@
 <p>另外一段处理就是spwan的处理了，当前的处理很简单，当spawn能量够时看缺乏哪种creep按需生产即可</p>
 <p>下一步的计划首先是根据RCL以及当前拥有的能量生产适当的creep，尽量做到能够根据RCL情况以及实际能量来生产，而后可能的话开始尝试实现一些简单的自动建筑？</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag"># 游戏</a>
+              <a href="/tags/screeps/" rel="tag"># screeps</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gilsaia.github.io/2019/12/03/screep-1/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="gilsaia">
-      <meta itemprop="description" content="something about gilsaia">
-    </span>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/12/03/screep-1/" rel="next" title="萌新尝试screeps——1、配置无需客户端的开发环境">
+                  <i class="fa fa-chevron-left"></i> 萌新尝试screeps——1、配置无需客户端的开发环境
+                </a>
+            </div>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gilsaia的小屋">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/03/screep-1/" class="post-title-link" itemprop="url">萌新尝试screeps——1、配置无需客户端的开发环境</a>
-        </h1>
+            <span class="post-nav-divider"></span>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-03 01:48:07" itemprop="dateCreated datePublished" datetime="2019-12-03T01:48:07+08:00">2019-12-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-06 23:12:12" itemprop="dateModified" datetime="2019-12-06T23:12:12+08:00">2019-12-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%97%B2%E4%BA%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">闲事</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%97%B2%E4%BA%8B/%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index">
-                    <span itemprop="name">游戏</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>很明显，作为一个作业爆多的<del>计算机专业学生</del>日渐秃头者，我们不希望被别人发现我们在打游戏，需要一个客户端是一件很不自然的事情，所以我们需要配置vscode的开发环境——无需客户端的那种</p>
-<blockquote>
-<p>看起来我在写码 其实我在打游戏 惊喜吧╮(￣▽￣)╭</p>
-</blockquote>
-<p>当然又是有现成的<a href="https://www.jianshu.com/p/ecfe39853306" target="_blank" rel="noopener">教程</a>啦</p>
-<p>一样有很多问题…插件安装会自动卸载一堆东西…似乎是npm的锅…卸载的东西重新安一次screep就回来了…</p>
-<p>本地远程终端连接需要不暂停才能正常看…它的插件watch需要你手动放到代码里才能正常启用…</p>
-<p>设好grunt检测代码变化上传之后，要注意私服的设置要加一些东西…具体的可以看<a href="https://screeps-cn.github.io/contributed/advanced_grunt.html" target="_blank" rel="noopener">这里</a><br>当然顺便把代码仓库传<a href="https://github.com/gilsaia/gilsaia-screeps" target="_blank" rel="noopener">GitHub</a>上…</p>
-<p>搞定收工</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gilsaia.github.io/2019/11/26/screep-0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="gilsaia">
-      <meta itemprop="description" content="something about gilsaia">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gilsaia的小屋">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/26/screep-0/" class="post-title-link" itemprop="url">萌新尝试screeps——0、服务器设置</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-26 14:56:05" itemprop="dateCreated datePublished" datetime="2019-11-26T14:56:05+08:00">2019-11-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-06 23:12:09" itemprop="dateModified" datetime="2019-12-06T23:12:09+08:00">2019-12-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%97%B2%E4%BA%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">闲事</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%97%B2%E4%BA%8B/%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index">
-                    <span itemprop="name">游戏</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>中文<a href="https://screeps-cn.github.io/" target="_blank" rel="noopener">文档</a>真的是好用嗷</p>
-<p>编程游戏，对我胃口嗷</p>
-<p>为了能够在世界服里有一个比较好的开端，我打算先在自己的服务器上跑私有客户端（感谢阿里云学生服务器），在服务器上做一个比较完善的尝试后再上世界服</p>
-<p>按照文档说的<a href="https://screeps-cn.github.io/contributed/ps_ubuntu.html" target="_blank" rel="noopener">方法</a></p>
-<p>装好一系列的环境 node.js MongoDB Redis…</p>
-<p>注意 文档里给的node.js版本也还是过低了…后来发现npm里有一个模块n可以来管理版本，直接搜就能看到了不难</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install npm</span><br><span class="line">sudo npm install n -g</span><br><span class="line">n stable</span><br></pre></td></tr></table></figure>
-<p>其他包倒是问题不大，照着教程来就是了<br>唔..有点尴尬…阿里云给的学生服务器性能不太够的样子…考虑一下要怎么办吧…</p>
-<p>尝试了一下…我去掉了额外的mongodb redis…能跑起来了…发现自己对于它cli和服务器的机制理解有问题…不知道是因为减少安装的包还是改正了使用过程的结果…反正能用了</p>
-<img src="/2019/11/26/screep-0/2019-11-30.png" class="" title="The result">
-<p>可是累死我了…</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gilsaia.github.io/2019/11/22/lifefirst/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="gilsaia">
-      <meta itemprop="description" content="something about gilsaia">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gilsaia的小屋">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/22/lifefirst/" class="post-title-link" itemprop="url">初始的杂言</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-22 01:32:13" itemprop="dateCreated datePublished" datetime="2019-11-22T01:32:13+08:00">2019-11-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-26 11:33:38" itemprop="dateModified" datetime="2019-11-26T11:33:38+08:00">2019-11-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%97%B2%E4%BA%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">闲事</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%97%B2%E4%BA%8B/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这篇是作为实验的文章 以后应该会被分类到生活分类吧估计…</p>
-<p>菜鸡一个，一无所成，深夜时刻偶有思索，不知所求为何。唯找些闲事来做方能放平心态，希望能够帮助自己思考，帮助自己专注</p>
-<p>似有千言，难喧于口 原是自身所知所想太少，既无深度，亦无视野，理应读书吧。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://gilsaia.github.io/2019/11/21/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="gilsaia">
-      <meta itemprop="description" content="something about gilsaia">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gilsaia的小屋">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/21/hello-world/" class="post-title-link" itemprop="url">gilsaia的小小游戏</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-21 14:04:29" itemprop="dateCreated datePublished" datetime="2019-11-21T14:04:29+08:00">2019-11-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-26 11:37:16" itemprop="dateModified" datetime="2019-11-26T11:37:16+08:00">2019-11-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本就是孤独之人 无他可言</p>
-<p>应该是更新日常、码题、学习到的新知识相关</p>
-<p>计算机专业菜鸡<br>Github:<a href="https://github.com/gilsaia/" target="_blank" rel="noopener">gilsaia</a><br>邮箱:<a href="mailto:gilsaianine@gmail.com" target="_blank" rel="noopener">gilsaianine@gmail.com</a><br>QQ:794433219</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
@@ -615,12 +302,10 @@
 
   </div>
 
-  
-
-
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
         </div>
           
@@ -762,6 +447,23 @@
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '994af086a393535f7fc7',
+      clientSecret: 'a4a76129de7622c8d9a114149bbbc1a93eccd154',
+      repo: 'gilsaia.github.io',
+      owner: 'gilsaia',
+      admin: ['gilsaia'],
+      id: 'cc750805037ea315712441f9b8f90606',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 </body>
 </html>
