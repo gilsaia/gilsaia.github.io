@@ -182,6 +182,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2019/12/06/screep-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="gilsaia">
+      <meta itemprop="description" content="something about gilsaia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gilsaia的小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/06/screep-2/" class="post-title-link" itemprop="url">萌新尝试screeps——2、最最基础的运行逻辑</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-06 23:10:57 / 修改时间：23:40:36" itemprop="dateCreated datePublished" datetime="2019-12-06T23:10:57+08:00">2019-12-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%97%B2%E4%BA%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">闲事</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%97%B2%E4%BA%8B/%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">游戏</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>那我们就算正式开始尝试了，为了有一个开头，我翻了一下youtube发现还是有相关教程的，所以前期的几篇大概会通过看教程模仿再加入一些自己的改进</p>
+<p>有用的资源</p>
+<ul>
+<li><a href="https://www.youtube.com/playlist?list=PL0EZQ169YGlor5rzeJEYYPE3tGYT2zGT2" target="_blank" rel="noopener">Youtube教程</a></li>
+<li><a href="https://screeps-cn.github.io/" target="_blank" rel="noopener">中文文档</a></li>
+<li><a href="https://screeps-cn.github.io/api/" target="_blank" rel="noopener">中文api</a></li>
+</ul>
+<p>这里建议在看教程模仿的时候调用的方法都去api文档里查一查，一是能够更加熟悉函数，二是教程不可避免地有些老了，有的方法已经被更换建议按照api中的新接口来使用。比如查看携带的资源现在统一为一个store对象了</p>
+<p>写下这篇文章的时候我看完了教程的前六段，首先类似地，我们将creep分成了几类，harvester，upgrader，builder，repairer，它们分别做的事情也非常显然</p>
+<ul>
+<li>harvester是最基本的收获能量填给spawn（以及建造了extension之后填给所有需要energy的地方）</li>
+<li>upgrader负责收集能量后升级房间的controller</li>
+<li>builder负责收集能量后填向需要建设的工地</li>
+<li>repairer负责收集能量后维修建筑</li>
+</ul>
+<p>目前的逻辑有的几个问题</p>
+<ul>
+<li>当前最基本的逻辑并没有实现自动建设工地，所以目前还需要我们手动指定工地</li>
+<li>所有的creep都是从房间的能源生成地获取能量后去做自己的事情，在RCL高了之后我们可以建设storge、link等让harvester填给存储设施而其他的creep从存储设施获取</li>
+<li>repairer目前的逻辑是先维修不是WALL的建筑之后如果有WALL再维修，这里有一个坑WALL是不能被FIND_MY_STRUCTURE搜索到的，必须是FIND_STRUCTURE才能找到WALL</li>
+</ul>
+<p>与教程不同的是，由于存在creep发现自己的事情已经做完的情况下可以去做其他creep的工作，但是直接引用会导致很大的重复代码运行，所以我加入了rolehandle模块负责统一处理各种creep共同的问题而将每种creep的role精简了许多</p>
+<figure class="highlight javascript"><figcaption><span>rolehandler</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> roleharvester=<span class="built_in">require</span>(<span class="string">'./roleharvester'</span>);</span><br><span class="line"><span class="keyword">var</span> roleupgrader=<span class="built_in">require</span>(<span class="string">'./roleupgrader'</span>);</span><br><span class="line"><span class="keyword">var</span> rolebuilder=<span class="built_in">require</span>(<span class="string">'./rolebuilder'</span>);</span><br><span class="line"><span class="keyword">var</span> rolerepairer=<span class="built_in">require</span>(<span class="string">'./rolerepairer'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports =&#123;</span><br><span class="line">    run:<span class="function"><span class="keyword">function</span>(<span class="params">creep</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(creep.memory.working == <span class="literal">true</span> &amp;&amp; creep.store.getFreeCapacity(RESOURCE_ENERGY) == <span class="number">0</span>)&#123;</span><br><span class="line">            creep.memory.working = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(creep.memory.working == <span class="literal">false</span> &amp;&amp; creep.store[RESOURCE_ENERGY] == <span class="number">0</span>)&#123;</span><br><span class="line">            creep.memory.working = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> isworking = creep.memory.working;</span><br><span class="line">        <span class="keyword">if</span>(creep.memory.role == <span class="string">'harvester'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(isworking)&#123;</span><br><span class="line">                roleharvester.prepare(creep);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                roleharvester.run(creep);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (creep.memory.role == <span class="string">'upgrader'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(isworking)&#123;</span><br><span class="line">                roleupgrader.prepare(creep);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                roleupgrader.run(creep);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (creep.memory.role == <span class="string">'builder'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(isworking)&#123;</span><br><span class="line">                rolebuilder.prepare(creep);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                rolebuilder.run(creep);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (creep.memory.role == <span class="string">'repairer'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(isworking)&#123;</span><br><span class="line">                rolerepairer.prepare(creep);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                rolerepairer.run(creep);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><figcaption><span>rolerepairer</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rolebuilder=<span class="built_in">require</span>(<span class="string">'./rolebuilder'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    run:<span class="function"><span class="keyword">function</span>(<span class="params">creep</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> structure=creep.pos.findClosestByPath(FIND_MY_STRUCTURES,&#123;</span><br><span class="line">            filter:<span class="function">(<span class="params">s</span>)=&gt;</span>s.hits&lt;s.hitsMax &amp;&amp; s.structureType != STRUCTURE_WALL</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">if</span>(structure!=<span class="literal">undefined</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(creep.repair(structure)==ERR_NOT_IN_RANGE)&#123;</span><br><span class="line">                creep.moveTo(structure);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            structure=creep.pos.findClosestByPath(FIND_STRUCTURES,&#123;</span><br><span class="line">                filter:<span class="function">(<span class="params">s</span>)=&gt;</span> s.structureType == STRUCTURE_WALL &amp;&amp; s.hits&lt;s.hitsMax </span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">if</span>(structure!=<span class="literal">undefined</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(creep.repair(structure)==ERR_NOT_IN_RANGE)&#123;</span><br><span class="line">                    creep.moveTo(structure);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                rolebuilder.run(creep);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    prepare:<span class="function"><span class="keyword">function</span>(<span class="params">creep</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> source=creep.pos.findClosestByPath(FIND_SOURCES);</span><br><span class="line">        <span class="keyword">if</span>(creep.harvest(source)==ERR_NOT_IN_RANGE)</span><br><span class="line">        &#123;</span><br><span class="line">            creep.moveTo(source);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>另外一段处理就是spwan的处理了，当前的处理很简单，当spawn能量够时看缺乏哪种creep按需生产即可</p>
+<p>下一步的计划首先是根据RCL以及当前拥有的能量生产适当的creep，尽量做到能够根据RCL情况以及实际能量来生产，而后可能的话开始尝试实现一些简单的自动建筑？</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2019/12/03/screep-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -559,7 +662,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
