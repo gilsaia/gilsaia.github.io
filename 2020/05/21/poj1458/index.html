@@ -49,18 +49,18 @@
   };
 </script>
 
-  <meta name="description" content="题意给n个老鼠，有各自的重量和速度，要找到一个体重严格上升，速度严格下降的最长排列 题解实际就是LIS 条件变一下，我用了一个之前图的思路来求 也勉强算是记忆化搜索吧。。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include&amp;lt;cstdi">
-<meta name="keywords" content="HDU,dp">
+  <meta name="description" content="题意。。最长公共子序列 简单易懂的题面 题解。。基础dp 没啥说的。。不过看了一下还是有优化的思路 可以找到第一个序列在第二个序列中的出现位置，这样出现位置的序列来做最长上升子序列 利用二分在理论上可以到O(nlogn)的复杂度 不过 依旧是懒得实践（ 12345678910111213141516171819202122#include&amp;lt;cstdio&amp;gt;#include&amp;lt;algo">
+<meta name="keywords" content="dp,POJ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hdu1160 FatMouse&#39;s Speed">
-<meta property="og:url" content="https:&#x2F;&#x2F;gilsaia.github.io&#x2F;2020&#x2F;05&#x2F;18&#x2F;hdu1160&#x2F;index.html">
+<meta property="og:title" content="poj1458 Common Subsequence">
+<meta property="og:url" content="https:&#x2F;&#x2F;gilsaia.github.io&#x2F;2020&#x2F;05&#x2F;21&#x2F;poj1458&#x2F;index.html">
 <meta property="og:site_name" content="gilsaia的小屋">
-<meta property="og:description" content="题意给n个老鼠，有各自的重量和速度，要找到一个体重严格上升，速度严格下降的最长排列 题解实际就是LIS 条件变一下，我用了一个之前图的思路来求 也勉强算是记忆化搜索吧。。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include&amp;lt;cstdi">
+<meta property="og:description" content="题意。。最长公共子序列 简单易懂的题面 题解。。基础dp 没啥说的。。不过看了一下还是有优化的思路 可以找到第一个序列在第二个序列中的出现位置，这样出现位置的序列来做最长上升子序列 利用二分在理论上可以到O(nlogn)的复杂度 不过 依旧是懒得实践（ 12345678910111213141516171819202122#include&amp;lt;cstdio&amp;gt;#include&amp;lt;algo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-18T11:03:17.693Z">
+<meta property="og:updated_time" content="2020-05-21T09:11:55.062Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://gilsaia.github.io/2020/05/18/hdu1160/">
+<link rel="canonical" href="https://gilsaia.github.io/2020/05/21/poj1458/">
 
 
 <script id="page-configurations">
@@ -74,7 +74,7 @@
   };
 </script>
 
-  <title>hdu1160 FatMouse's Speed | gilsaia的小屋</title>
+  <title>poj1458 Common Subsequence | gilsaia的小屋</title>
   
 
 
@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2020/05/18/hdu1160/">
+    <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2020/05/21/poj1458/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -197,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          hdu1160 FatMouse's Speed
+          poj1458 Common Subsequence
         </h1>
 
         <div class="post-meta">
@@ -208,7 +208,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-05-18 19:00:55 / 修改时间：19:03:17" itemprop="dateCreated datePublished" datetime="2020-05-18T19:00:55+08:00">2020-05-18</time>
+              <time title="创建时间：2020-05-21 17:08:57 / 修改时间：17:11:55" itemprop="dateCreated datePublished" datetime="2020-05-21T17:08:57+08:00">2020-05-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,10 +239,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给n个老鼠，有各自的重量和速度，要找到一个体重严格上升，速度严格下降的最长排列</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>实际就是LIS 条件变一下，我用了一个之前图的思路来求 也勉强算是记忆化搜索吧。。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> W[<span class="number">1020</span>],S[<span class="number">1020</span>],length[<span class="number">1020</span>],nextm[<span class="number">1020</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; G[<span class="number">1020</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">find_mat</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> W[a]&gt;W[b]&amp;&amp;S[a]&lt;S[b];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(length[x]!=<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> length[x]+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    length[x]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;G[x].<span class="built_in">size</span>();++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp=dfs(G[x][i]);</span><br><span class="line">        <span class="keyword">if</span>(tmp&gt;length[x])&#123;</span><br><span class="line">            length[x]=tmp;</span><br><span class="line">            nextm[x]=G[x][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> length[x]+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(nextm,<span class="number">-1</span>,<span class="keyword">sizeof</span>(nextm));</span><br><span class="line">    <span class="built_in">memset</span>(length,<span class="number">-1</span>,<span class="keyword">sizeof</span>(length));</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;W[n],&amp;S[n]))&#123;</span><br><span class="line">        ++n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(n<span class="number">-1</span>);++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(find_mat(i,n<span class="number">-1</span>))&#123;</span><br><span class="line">                G[n<span class="number">-1</span>].push_back(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(find_mat(n<span class="number">-1</span>,i))&#123;</span><br><span class="line">                G[i].push_back(n<span class="number">-1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">-1</span>,ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(dfs(i)&gt;ans)&#123;</span><br><span class="line">            ans=length[i]+<span class="number">1</span>;</span><br><span class="line">            res=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n%d\n"</span>,ans,res+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span>(nextm[res]!=<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,nextm[res]+<span class="number">1</span>);</span><br><span class="line">        res=nextm[res];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>。。最长公共子序列 简单易懂的题面</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>。。基础dp 没啥说的。。不过看了一下还是有优化的思路 可以找到第一个序列在第二个序列中的出现位置，这样出现位置的序列来做最长上升子序列 利用二分在理论上可以到O(nlogn)的复杂度 不过 依旧是懒得实践（</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">1200</span>][<span class="number">1200</span>];</span><br><span class="line"><span class="keyword">char</span> x[<span class="number">1200</span>],y[<span class="number">1200</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%s%s"</span>,x,y))&#123;</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">int</span> i,j;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;x[i]!=<span class="string">'\0'</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">0</span>;y[j]!=<span class="string">'\0'</span>;++j)&#123;</span><br><span class="line">                dp[i+<span class="number">1</span>][j+<span class="number">1</span>]=<span class="built_in">max</span>(dp[i+<span class="number">1</span>][j],dp[i][j+<span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">if</span>(x[i]==y[j])&#123;</span><br><span class="line">                    dp[i+<span class="number">1</span>][j+<span class="number">1</span>]=<span class="built_in">max</span>(dp[i+<span class="number">1</span>][j+<span class="number">1</span>],dp[i][j]+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -251,25 +250,22 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/HDU/" rel="tag"># HDU</a>
               <a href="/tags/dp/" rel="tag"># dp</a>
+              <a href="/tags/POJ/" rel="tag"># POJ</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2020/05/17/hdu1257/" rel="next" title="hdu1257 最少拦截系统">
-                  <i class="fa fa-chevron-left"></i> hdu1257 最少拦截系统
+                <a href="/2020/05/20/poj1015/" rel="next" title="poj1015 Jury Compromise">
+                  <i class="fa fa-chevron-left"></i> poj1015 Jury Compromise
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2020/05/20/poj1015/" rel="prev" title="poj1015 Jury Compromise">
-                  poj1015 Jury Compromise <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -450,7 +446,7 @@
       repo: 'gilsaia.github.io',
       owner: 'gilsaia',
       admin: ['gilsaia'],
-      id: 'b9ac7f03212898a746b2c1250080d131',
+      id: 'f514b54413b0c50c0387a22d15115c03',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });
