@@ -182,6 +182,96 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2020/05/09/hdu1074/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="gilsaia">
+      <meta itemprop="description" content="something about gilsaia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gilsaia的小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/09/hdu1074/" class="post-title-link" itemprop="url">hdu1074 Doing Homework</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-09 16:36:44" itemprop="dateCreated datePublished" datetime="2020-05-09T16:36:44+08:00">2020-05-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-11 18:24:27" itemprop="dateModified" datetime="2020-05-11T18:24:27+08:00">2020-05-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>你要完成n份作业（n最大15）每份作业有需要完成的时间和时限，不能在要求的时间内完成每晚一个时间单位扣一分，问扣分最少是多少 在扣分最少的情况下 要求输出完成顺序 <strong>要输出所有可能种字典序排的一份</strong></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>乍一看之下，简单 简单~ 不就是按时限排个序就知道最小值了吗 唉等等 要求输出字典序最小的情况，这就有些意思了 因为这时候时限小的可能由于字典序问题不一定排在前面 举例来说</p>
+<blockquote>
+<p>math 20 1</p>
+<p>se 5 1</p>
+</blockquote>
+<p>这种情况下时限并没有任何意义 不能简单排序了之</p>
+<p>那要怎么办呢？考虑到n给的很小，我一下子<del>之前做过</del>想到了状压dp 对于每个状态，搜索置为1的看看能不能从那个状态过来，这样遍历即可 由于输入自然的保证了顺序 我们只需要搜索时倒着搜索就可以保证字典序了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">subject</span>&#123;</span></span><br><span class="line">    <span class="built_in">string</span> classname;</span><br><span class="line">    <span class="keyword">int</span> endtime,lasttime;</span><br><span class="line">&#125;;</span><br><span class="line">subject classes[<span class="number">20</span>];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> nowtime,score,lastindex;</span><br><span class="line">&#125;dp[<span class="number">1</span>&lt;&lt;<span class="number">17</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">        <span class="keyword">char</span> tmp[<span class="number">120</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%s%d%d"</span>,tmp,&amp;classes[i].endtime,&amp;classes[i].lasttime);</span><br><span class="line">            classes[i].classname=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">int</span> s=<span class="number">1</span>&lt;&lt;n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;s;++i)&#123;</span><br><span class="line">            dp[i].score=<span class="number">0x3fffffff</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=n<span class="number">-1</span>;j&gt;=<span class="number">0</span>;--j)&#123;</span><br><span class="line">                <span class="keyword">int</span> t=<span class="number">1</span>&lt;&lt;j;</span><br><span class="line">                <span class="keyword">if</span>(i&amp;t)&#123;</span><br><span class="line">                    <span class="keyword">int</span> addscore=dp[i&amp;(~t)].nowtime+classes[j].lasttime-classes[j].endtime;</span><br><span class="line">                    <span class="keyword">if</span>(addscore&lt;<span class="number">0</span>)&#123;</span><br><span class="line">                        addscore=<span class="number">0</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(dp[i&amp;(~t)].score+addscore&lt;dp[i].score)&#123;</span><br><span class="line">                        dp[i].score=dp[i&amp;(~t)].score+addscore;</span><br><span class="line">                        dp[i].nowtime=dp[i&amp;(~t)].nowtime+classes[j].lasttime;</span><br><span class="line">                        dp[i].lastindex=j;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt; order;</span><br><span class="line">        <span class="keyword">int</span> t=(<span class="number">1</span>&lt;&lt;n)<span class="number">-1</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[t].score);</span><br><span class="line">        <span class="keyword">while</span>(t)&#123;</span><br><span class="line">            order.push(classes[dp[t].lastindex].classname);</span><br><span class="line">            t&amp;=(~(<span class="number">1</span>&lt;&lt;dp[t].lastindex));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!order.empty())&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,order.top().c_str());</span><br><span class="line">            order.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2020/05/07/hdu1069/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -905,83 +995,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2020/01/27/leetcode-5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="gilsaia">
-      <meta itemprop="description" content="something about gilsaia">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="gilsaia的小屋">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/27/leetcode-5/" class="post-title-link" itemprop="url">leetcode 5 最长回文子串</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-01-27 16:02:13 / 修改时间：16:07:46" itemprop="dateCreated datePublished" datetime="2020-01-27T16:02:13+08:00">2020-01-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>也是蛮标准的题目了 写了一个dp的O($n^2$)的解法 马拉车的O(n)解法回头有时间来学习吧…</p>
-<p>哦空串要单独判断…因为似乎substr对空串即使取0长度也会出问题…</p>
-<figure class="highlight c"><figcaption><span>++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @lc app=leetcode.cn id=5 lang=cpp</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * [5] 最长回文子串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">// @lc code=start</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">string</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> dp[<span class="number">1020</span>][<span class="number">1020</span>],ans=<span class="number">0</span>,start=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();++i)&#123;</span><br><span class="line">            dp[i][i]=<span class="number">1</span>;</span><br><span class="line">            ans=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length()<span class="number">-1</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==s[i+<span class="number">1</span>])&#123;</span><br><span class="line">                dp[i][i+<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">                ans=<span class="number">2</span>,start=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;s.length();++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j+i&lt;s.length();++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(dp[j+<span class="number">1</span>][j+i<span class="number">-1</span>]&amp;&amp;s[j]==s[j+i])&#123;</span><br><span class="line">                    dp[j][j+i]=<span class="number">1</span>;</span><br><span class="line">                    ans=i+<span class="number">1</span>,start=j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substr(start,ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// @lc code=end</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1030,7 +1043,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
