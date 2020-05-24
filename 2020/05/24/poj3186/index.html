@@ -49,18 +49,18 @@
   };
 </script>
 
-  <meta name="description" content="很明显，作为一个作业爆多的计算机专业学生日渐秃头者，我们不希望被别人发现我们在打游戏，需要一个客户端是一件很不自然的事情，所以我们需要配置vscode的开发环境——无需客户端的那种  看起来我在写码 其实我在打游戏 惊喜吧╮(￣▽￣)╭  当然又是有现成的教程啦 一样有很多问题…插件安装会自动卸载一堆东西…似乎是npm的锅…卸载的东西重新安一次screep就回来了… 本地远程终端连接需要不暂停才能">
-<meta name="keywords" content="游戏,screeps">
+  <meta name="description" content="题意给一个队列的商品 每天只能拿最左或者最右 商品的价值是自身的价值乘卖出的天数 问最大能卖多少 题解一开始想的dp复杂了。。实际上就是简单的区间dp 123456789101112131415161718192021#include&amp;lt;cstdio&amp;gt;#include&amp;lt;algorithm&amp;gt;#include&amp;lt;cstring&amp;gt;using namespace std;l">
+<meta name="keywords" content="dp,POJ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="萌新尝试screeps——1、配置无需客户端的开发环境">
-<meta property="og:url" content="https:&#x2F;&#x2F;gilsaia.github.io&#x2F;2019&#x2F;12&#x2F;03&#x2F;screep-1&#x2F;index.html">
+<meta property="og:title" content="poj3186 Treats for the Cows">
+<meta property="og:url" content="https:&#x2F;&#x2F;gilsaia.github.io&#x2F;2020&#x2F;05&#x2F;24&#x2F;poj3186&#x2F;index.html">
 <meta property="og:site_name" content="gilsaia的小屋">
-<meta property="og:description" content="很明显，作为一个作业爆多的计算机专业学生日渐秃头者，我们不希望被别人发现我们在打游戏，需要一个客户端是一件很不自然的事情，所以我们需要配置vscode的开发环境——无需客户端的那种  看起来我在写码 其实我在打游戏 惊喜吧╮(￣▽￣)╭  当然又是有现成的教程啦 一样有很多问题…插件安装会自动卸载一堆东西…似乎是npm的锅…卸载的东西重新安一次screep就回来了… 本地远程终端连接需要不暂停才能">
+<meta property="og:description" content="题意给一个队列的商品 每天只能拿最左或者最右 商品的价值是自身的价值乘卖出的天数 问最大能卖多少 题解一开始想的dp复杂了。。实际上就是简单的区间dp 123456789101112131415161718192021#include&amp;lt;cstdio&amp;gt;#include&amp;lt;algorithm&amp;gt;#include&amp;lt;cstring&amp;gt;using namespace std;l">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-06T15:12:12.763Z">
+<meta property="og:updated_time" content="2020-05-24T07:07:28.041Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://gilsaia.github.io/2019/12/03/screep-1/">
+<link rel="canonical" href="https://gilsaia.github.io/2020/05/24/poj3186/">
 
 
 <script id="page-configurations">
@@ -74,7 +74,7 @@
   };
 </script>
 
-  <title>萌新尝试screeps——1、配置无需客户端的开发环境 | gilsaia的小屋</title>
+  <title>poj3186 Treats for the Cows | gilsaia的小屋</title>
   
 
 
@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2019/12/03/screep-1/">
+    <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2020/05/24/poj3186/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -197,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          萌新尝试screeps——1、配置无需客户端的开发环境
+          poj3186 Treats for the Cows
         </h1>
 
         <div class="post-meta">
@@ -206,30 +206,24 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-12-03 01:48:07" itemprop="dateCreated datePublished" datetime="2019-12-03T01:48:07+08:00">2019-12-03</time>
+              <time title="创建时间：2020-05-24 15:05:47 / 修改时间：15:07:28" itemprop="dateCreated datePublished" datetime="2020-05-24T15:05:47+08:00">2020-05-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-06 23:12:12" itemprop="dateModified" datetime="2019-12-06T23:12:12+08:00">2019-12-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%97%B2%E4%BA%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">闲事</span>
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%97%B2%E4%BA%8B/%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index">
-                    <span itemprop="name">游戏</span>
+                  <a href="/categories/%E7%AE%97%E6%B3%95/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
                   </a>
                 </span>
             </span>
@@ -245,16 +239,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>很明显，作为一个作业爆多的<del>计算机专业学生</del>日渐秃头者，我们不希望被别人发现我们在打游戏，需要一个客户端是一件很不自然的事情，所以我们需要配置vscode的开发环境——无需客户端的那种</p>
-<blockquote>
-<p>看起来我在写码 其实我在打游戏 惊喜吧╮(￣▽￣)╭</p>
-</blockquote>
-<p>当然又是有现成的<a href="https://www.jianshu.com/p/ecfe39853306" target="_blank" rel="noopener">教程</a>啦</p>
-<p>一样有很多问题…插件安装会自动卸载一堆东西…似乎是npm的锅…卸载的东西重新安一次screep就回来了…</p>
-<p>本地远程终端连接需要不暂停才能正常看…它的插件watch需要你手动放到代码里才能正常启用…</p>
-<p>设好grunt检测代码变化上传之后，要注意私服的设置要加一些东西…具体的可以看<a href="https://screeps-cn.github.io/contributed/advanced_grunt.html" target="_blank" rel="noopener">这里</a><br>当然顺便把代码仓库传<a href="https://github.com/gilsaia/gilsaia-screeps" target="_blank" rel="noopener">GitHub</a>上…</p>
-<p>搞定收工</p>
-
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给一个队列的商品 每天只能拿最左或者最右 商品的价值是自身的价值乘卖出的天数 问最大能卖多少</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>一开始想的dp复杂了。。实际上就是简单的区间dp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> dp[<span class="number">2040</span>][<span class="number">2040</span>];</span><br><span class="line"><span class="keyword">int</span> treat[<span class="number">2020</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;treat[i]), dp[i][i] = treat[i]*n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> len = <span class="number">1</span>; len &lt; n; len++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> j = i + len;</span><br><span class="line">            dp[i][j] = <span class="built_in">max</span>(dp[i+<span class="number">1</span>][j]+treat[i]*(n-len), dp[i][j<span class="number">-1</span>]+treat[j]*(n-len)); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,dp[<span class="number">1</span>][n]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -263,25 +250,22 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag"># 游戏</a>
-              <a href="/tags/screeps/" rel="tag"># screeps</a>
+              <a href="/tags/dp/" rel="tag"># dp</a>
+              <a href="/tags/POJ/" rel="tag"># POJ</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/26/screep-0/" rel="next" title="萌新尝试screeps——0、服务器设置">
-                  <i class="fa fa-chevron-left"></i> 萌新尝试screeps——0、服务器设置
+                <a href="/2020/05/23/poj2533/" rel="next" title="poj2533 Longest Ordered Subsequence">
+                  <i class="fa fa-chevron-left"></i> poj2533 Longest Ordered Subsequence
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/12/06/screep-2/" rel="prev" title="萌新尝试screeps——2、最最基础的运行逻辑">
-                  萌新尝试screeps——2、最最基础的运行逻辑 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -321,6 +305,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -461,7 +446,7 @@
       repo: 'gilsaia.github.io',
       owner: 'gilsaia',
       admin: ['gilsaia'],
-      id: '6e7e75d23986297a11bd86dc022ded6b',
+      id: 'c2c544166e7fed3f029e9edc2d3464a8',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });
