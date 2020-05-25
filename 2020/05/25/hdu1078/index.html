@@ -49,18 +49,18 @@
   };
 </script>
 
-  <meta name="description" content="题意k个人买票 每个人有自己买票的时长，任意两个相邻的人有一块买票的时长 问最短耗时 题解。。基本DPdp[i]=min(dp[i-1]+si[i],dp[i-2]+adi[i]) 12345678910111213141516171819202122232425262728293031#include&amp;lt;cstdio&amp;gt;#include&amp;lt;algorithm&amp;gt;using nam">
+  <meta name="description" content="题意二维地图 每个位置有一个分数 从(0,0)开始走，走到哪里可以得到哪里的分数，要求每次只能横向或竖向走最多k个单位，每一次走到的地方分数要比上一次大 题解蛮简单。。记忆化搜索做个dfs就可以了。。 1234567891011121314151617181920212223242526272829303132333435363738394041#include&amp;lt;cstdio&amp;gt;#inc">
 <meta name="keywords" content="dp,HDU">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hdu1260	Tickets">
-<meta property="og:url" content="https:&#x2F;&#x2F;gilsaia.github.io&#x2F;2020&#x2F;05&#x2F;17&#x2F;hdu1260&#x2F;index.html">
+<meta property="og:title" content="hdu1078 FatMouse and Cheese">
+<meta property="og:url" content="https:&#x2F;&#x2F;gilsaia.github.io&#x2F;2020&#x2F;05&#x2F;25&#x2F;hdu1078&#x2F;index.html">
 <meta property="og:site_name" content="gilsaia的小屋">
-<meta property="og:description" content="题意k个人买票 每个人有自己买票的时长，任意两个相邻的人有一块买票的时长 问最短耗时 题解。。基本DPdp[i]=min(dp[i-1]+si[i],dp[i-2]+adi[i]) 12345678910111213141516171819202122232425262728293031#include&amp;lt;cstdio&amp;gt;#include&amp;lt;algorithm&amp;gt;using nam">
+<meta property="og:description" content="题意二维地图 每个位置有一个分数 从(0,0)开始走，走到哪里可以得到哪里的分数，要求每次只能横向或竖向走最多k个单位，每一次走到的地方分数要比上一次大 题解蛮简单。。记忆化搜索做个dfs就可以了。。 1234567891011121314151617181920212223242526272829303132333435363738394041#include&amp;lt;cstdio&amp;gt;#inc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-17T07:20:16.201Z">
+<meta property="og:updated_time" content="2020-05-25T05:49:55.913Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://gilsaia.github.io/2020/05/17/hdu1260/">
+<link rel="canonical" href="https://gilsaia.github.io/2020/05/25/hdu1078/">
 
 
 <script id="page-configurations">
@@ -74,7 +74,7 @@
   };
 </script>
 
-  <title>hdu1260	Tickets | gilsaia的小屋</title>
+  <title>hdu1078 FatMouse and Cheese | gilsaia的小屋</title>
   
 
 
@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2020/05/17/hdu1260/">
+    <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2020/05/25/hdu1078/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -197,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          hdu1260	Tickets
+          hdu1078 FatMouse and Cheese
         </h1>
 
         <div class="post-meta">
@@ -208,7 +208,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-05-17 01:19:10 / 修改时间：15:20:16" itemprop="dateCreated datePublished" datetime="2020-05-17T01:19:10+08:00">2020-05-17</time>
+              <time title="创建时间：2020-05-25 13:47:43 / 修改时间：13:49:55" itemprop="dateCreated datePublished" datetime="2020-05-25T13:47:43+08:00">2020-05-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,10 +239,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>k个人买票 每个人有自己买票的时长，任意两个相邻的人有一块买票的时长 问最短耗时</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>。。基本DP<br><code>dp[i]=min(dp[i-1]+si[i],dp[i-2]+adi[i])</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">2020</span>],adi[<span class="number">2020</span>],si[<span class="number">2020</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="keyword">int</span> k;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;++i)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;si[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=k;++i)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;adi[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        dp[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">1</span>]=si[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=k;++i)&#123;</span><br><span class="line">            dp[i]=<span class="built_in">min</span>(dp[i<span class="number">-1</span>]+si[i],dp[i<span class="number">-2</span>]+adi[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> s=dp[k]%<span class="number">60</span>,m=(dp[k]/<span class="number">60</span>)%<span class="number">60</span>,h=(dp[k]/<span class="number">3600</span>+<span class="number">8</span>)%<span class="number">24</span>;</span><br><span class="line">        <span class="keyword">int</span> af=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(h&gt;<span class="number">12</span>)&#123;</span><br><span class="line">            af=<span class="number">1</span>;</span><br><span class="line">            h-=<span class="number">12</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%02d:%02d:%02d %s\n"</span>,h,m,s,af?<span class="string">"pm"</span>:<span class="string">"am"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>二维地图 每个位置有一个分数 从(0,0)开始走，走到哪里可以得到哪里的分数，要求每次只能横向或竖向走最多k个单位，每一次走到的地方分数要比上一次大</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>蛮简单。。记忆化搜索做个dfs就可以了。。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">120</span>][<span class="number">120</span>],hole[<span class="number">120</span>][<span class="number">120</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> &amp;k,<span class="keyword">int</span> &amp;n,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dp[i][j]!=<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> dp[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> t=<span class="number">1</span>;t&lt;=k;++t)&#123;</span><br><span class="line">        <span class="keyword">if</span>((i+t)&lt;n&amp;&amp;hole[i+t][j]&gt;hole[i][j])&#123;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,dfs(k,n,i+t,j));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>((i-t)&gt;=<span class="number">0</span>&amp;&amp;hole[i-t][j]&gt;hole[i][j])&#123;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,dfs(k,n,i-t,j));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>((j+t)&lt;n&amp;&amp;hole[i][j+t]&gt;hole[i][j])&#123;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,dfs(k,n,i,j+t));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>((j-t)&gt;=<span class="number">0</span>&amp;&amp;hole[i][j-t]&gt;hole[i][j])&#123;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,dfs(k,n,i,j-t));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dp[i][j]=ans+hole[i][j];</span><br><span class="line">    <span class="keyword">return</span> dp[i][j];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,k;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k),n!=<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;++j)&#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;hole[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">-1</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">int</span> ans=dfs(k,n,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -259,17 +258,14 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2020/05/12/hdu1176/" rel="next" title="hdu1176 免费馅饼">
-                  <i class="fa fa-chevron-left"></i> hdu1176 免费馅饼
+                <a href="/2020/05/24/poj3186/" rel="next" title="poj3186 Treats for the Cows">
+                  <i class="fa fa-chevron-left"></i> poj3186 Treats for the Cows
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2020/05/17/hdu1257/" rel="prev" title="hdu1257 最少拦截系统">
-                  hdu1257 最少拦截系统 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -450,7 +446,7 @@
       repo: 'gilsaia.github.io',
       owner: 'gilsaia',
       admin: ['gilsaia'],
-      id: 'ee0f4075677d9fa77cc1137578f07a6b',
+      id: '5f7cdd343a1b87c8ecfa6dec572fb5f0',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });
