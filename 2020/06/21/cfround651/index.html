@@ -49,18 +49,18 @@
   };
 </script>
 
-  <meta name="description" content="题意裸的最长上升子序列。。要求严格上升 题解。。真没啥说的 这次用了二分查 123456789101112131415161718192021#include&amp;lt;cstdio&amp;gt;#include&amp;lt;algorithm&amp;gt;#include&amp;lt;cstring&amp;gt;using namespace std;const int MAXN=0x3f3f3f3f;int dp[1040];">
-<meta name="keywords" content="dp,POJ">
+  <meta name="description" content="隔了一段时间来做。。感觉又变菜了。。 A题意给定n，找到0到n中任意两个数的gcd最大值 题解最大的gcd很显然就是n和n&#x2F;2的gcd，看好奇偶性就好了 B题意给2n个数 挑n-1对 让每一对的和作为一个元素 所有元素的gcd不为1 题解乍看有点唬人 实际一想 每个元素都是偶数就可以解决问题了 所以就一直挑奇数挑到剩0个或1个或已经够n-1对 然后剩下的用偶数对补满即可 C题意俩人玩游戏 从n开始">
+<meta name="keywords" content="Codeforces">
 <meta property="og:type" content="article">
-<meta property="og:title" content="poj2533 Longest Ordered Subsequence">
-<meta property="og:url" content="https:&#x2F;&#x2F;gilsaia.github.io&#x2F;2020&#x2F;05&#x2F;23&#x2F;poj2533&#x2F;index.html">
+<meta property="og:title" content="Codeforces Round#651 div.2">
+<meta property="og:url" content="https:&#x2F;&#x2F;gilsaia.github.io&#x2F;2020&#x2F;06&#x2F;21&#x2F;cfround651&#x2F;index.html">
 <meta property="og:site_name" content="gilsaia的小屋">
-<meta property="og:description" content="题意裸的最长上升子序列。。要求严格上升 题解。。真没啥说的 这次用了二分查 123456789101112131415161718192021#include&amp;lt;cstdio&amp;gt;#include&amp;lt;algorithm&amp;gt;#include&amp;lt;cstring&amp;gt;using namespace std;const int MAXN=0x3f3f3f3f;int dp[1040];">
+<meta property="og:description" content="隔了一段时间来做。。感觉又变菜了。。 A题意给定n，找到0到n中任意两个数的gcd最大值 题解最大的gcd很显然就是n和n&#x2F;2的gcd，看好奇偶性就好了 B题意给2n个数 挑n-1对 让每一对的和作为一个元素 所有元素的gcd不为1 题解乍看有点唬人 实际一想 每个元素都是偶数就可以解决问题了 所以就一直挑奇数挑到剩0个或1个或已经够n-1对 然后剩下的用偶数对补满即可 C题意俩人玩游戏 从n开始">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-23T05:30:45.729Z">
+<meta property="og:updated_time" content="2020-06-21T07:42:36.840Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://gilsaia.github.io/2020/05/23/poj2533/">
+<link rel="canonical" href="https://gilsaia.github.io/2020/06/21/cfround651/">
 
 
 <script id="page-configurations">
@@ -74,7 +74,7 @@
   };
 </script>
 
-  <title>poj2533 Longest Ordered Subsequence | gilsaia的小屋</title>
+  <title>Codeforces Round#651 div.2 | gilsaia的小屋</title>
   
 
 
@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2020/05/23/poj2533/">
+    <link itemprop="mainEntityOfPage" href="https://gilsaia.github.io/2020/06/21/cfround651/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -197,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          poj2533 Longest Ordered Subsequence
+          Codeforces Round#651 div.2
         </h1>
 
         <div class="post-meta">
@@ -208,7 +208,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-05-23 13:29:32 / 修改时间：13:30:45" itemprop="dateCreated datePublished" datetime="2020-05-23T13:29:32+08:00">2020-05-23</time>
+              <time title="创建时间：2020-06-21 15:18:42 / 修改时间：15:42:36" itemprop="dateCreated datePublished" datetime="2020-06-21T15:18:42+08:00">2020-06-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,9 +239,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>裸的最长上升子序列。。要求严格上升</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>。。真没啥说的 这次用了二分查</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">1040</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="built_in">memset</span>(dp,MAXN,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;tmp);</span><br><span class="line">        <span class="keyword">int</span> ide=lower_bound(dp,dp+n,tmp)-dp;</span><br><span class="line">        dp[ide]=tmp;</span><br><span class="line">        ans=<span class="built_in">max</span>(ans,ide);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>隔了一段时间来做。。感觉又变菜了。。</p>
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定n，找到0到n中任意两个数的gcd最大值</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>最大的gcd很显然就是n和n/2的gcd，看好奇偶性就好了</p>
+<h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>给2n个数 挑n-1对 让每一对的和作为一个元素 所有元素的gcd不为1</p>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>乍看有点唬人 实际一想 每个元素都是偶数就可以解决问题了 所以就一直挑奇数挑到剩0个或1个或已经够n-1对 然后剩下的用偶数对补满即可</p>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>俩人玩游戏 从n开始 两种操作 减一或者除这个数的任意一个大于一的奇数因子 谁不能动了就输</p>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>看了一下题解 我的思路是没问题的。。然而就是wa也不知道为啥。。</p>
+<p>可以看出 1是必败态 2是必胜态 所有的奇数都是必胜态 因为可以除以自身 偶数里所有不含奇数因子的除2以外都是必败态 也就是2的n次方形式 因为只能减一操作 转移到必胜态 所以是必败态 而任何带有奇数因子且因子中2的个数大于1的都是必胜态 也很简单 直接除以所有奇数因子的积转移到必败态 形式为2*x x为一个质数的是必败态 因为两种操作都转移到必胜态 形式为2*x*x。。。的为必胜态 除到之前说的形式也就是一步转移能到必败态</p>
+<p>然而不知道哪里写错了。。。好气哦</p>
+<h2 id="D"><a href="#D" class="headerlink" title="D"></a>D</h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>。。困 懒得看了 就这样吧先。。</p>
+
     </div>
 
     
@@ -250,25 +258,21 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/dp/" rel="tag"># dp</a>
-              <a href="/tags/POJ/" rel="tag"># POJ</a>
+              <a href="/tags/Codeforces/" rel="tag"># Codeforces</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2020/05/22/poj1661/" rel="next" title="poj1661 Help Jimmy">
-                  <i class="fa fa-chevron-left"></i> poj1661 Help Jimmy
+                <a href="/2020/06/10/cfround645/" rel="next" title="Codeforces Round#645 div.2">
+                  <i class="fa fa-chevron-left"></i> Codeforces Round#645 div.2
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2020/05/24/poj3186/" rel="prev" title="poj3186 Treats for the Cows">
-                  poj3186 Treats for the Cows <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -308,7 +312,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A"><span class="nav-number">1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意"><span class="nav-number">1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">1.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B"><span class="nav-number">2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-1"><span class="nav-number">2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-number">2.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-2"><span class="nav-number">3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-number">3.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D"><span class="nav-number">4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-3"><span class="nav-number">4.1.</span> <span class="nav-text">题意</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -449,7 +453,7 @@
       repo: 'gilsaia.github.io',
       owner: 'gilsaia',
       admin: ['gilsaia'],
-      id: 'd49c1f1cacd605680228be38bdb83e54',
+      id: '9d6c31e17eb267595c970c5dc92b8db3',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });
